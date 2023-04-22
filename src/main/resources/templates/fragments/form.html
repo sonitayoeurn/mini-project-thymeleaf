@@ -1,0 +1,51 @@
+<form th:action="@{/post}" method="post" th:object="${article}">
+  <div class="row bg-body-tertiary p-5 shadow-sm">
+    <div class="col-4 " >
+      <img th:src="@{/resources/img/logo/placeholder.jpg}" id="placeholder" class='w-100 object-fit-cover' style=" height: 350px" />
+
+      <div class="mb-3 mt-4 p-1 ">
+        <input class="form-control" type="file" id="thumbnailFile">
+      </div>
+    </div>
+
+    <div class="col-8">
+      <h4 class="mb-3">Create a new Post</h4>
+      <div class="mb-3">
+        <label for="title" class="form-label">Post Title</label>
+        <input th:field="*{title}" type="text" class="form-control" id="title" placeholder="Enter title">
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea th:field="*{description}" class="form-control" id="description" rows="3" ></textarea>
+      </div>
+
+      <div class="row d-flex justify-content-between">
+        <div class="col-4">
+          <label>Author</label>
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Open this select menu</option>
+            <option value="1">la-lisa</option>
+            <option value="2">jennie-ta</option>
+            <option value="3">ji-soo</option>
+            <option value="3">ro-se</option>
+
+          </select>
+        </div>
+        <div class="col-4">
+          <label>Choose Categories</label>
+          <select class="form-select" multiple aria-label="multiple select example">
+            <option selected>Open this select menu</option>
+            <option value="1">rabbit</option>
+            <option value="2">cat</option>
+            <option value="2">tiger</option>
+            <option value="2">dog</option>
+          </select>
+        </div>
+      </div>
+      <div class=" d-flex justify-content-between mt-4">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="button" class="btn btn-outline-secondary">Cancel</button>
+      </div>
+    </div>
+  </div>
+</form>

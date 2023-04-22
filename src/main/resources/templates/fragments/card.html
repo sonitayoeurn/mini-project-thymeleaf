@@ -1,0 +1,77 @@
+<section xmlns:th="http://www.thymeleaf.org">
+<!--  card animal-->
+  <div  class="card shadow-sm mb-5 text-decoration-none " th:fragment="CardWelcome(uuid, thumbnail, title, author, description, logo, name)" th:href="@{/article/{uuid}(uuid=${uuid})}">
+    <div style="height: 400px">
+      <img th:src="@{/resources/img/logo/{thumbnail}(thumbnail=${thumbnail})}" class="card-img-top h-100 object-fit-cover" alt="categories">
+    </div>
+    <div class="card-body">
+      <div class="d-flex">
+        <img th:src="@{/resources/img/logo/{logo}(logo=${logo})}" class="rounded-circle m-2" style="width: 50px;height: 50px"
+             alt="Avatar" />
+        <div class="d-flex flex-column justify-content-center ms-2 ">
+          <p th:text="${name}" class="mb-0"></p>
+          <div class="d-flex text-warning">
+            <b>@</b>
+            <b th:text="${name}"></b>
+          </div>
+        </div>
+      </div>
+      <h5 th:text="${author}"></h5>
+      <div class="mb-2">
+        <span class="badge rounded-pill text-bg-warning">categories</span>
+        <span th:text="${title}" class="badge rounded-pill text-bg-warning"></span>
+        <p th:text="${description}" class="card-text" ></p>
+        <a th:href="@{/profile/{name}(name=${name})}" class="btn btn-outline-primary">View Profile</a>
+        <a class="btn btn-outline-warning">Edit</a>
+        <a class="btn btn-outline-danger delete-article">Delete</a>
+      </div>
+
+
+
+    </div>
+
+
+  </div>
+
+
+  <!--Card Categories-->
+  <div th:fragment="categories" class=" justify-content-center float-end">
+    <div class="card" style="width: 500px;">
+      <img src="https://1445333.fs1.hubspotusercontent-na1.net/hubfs/1445333/Imported_Blog_Media/E-Commerce-Category-Page-Examples-Facebook.jpg"
+           alt="News Coffee" class="bd-placeholder-img card-img-top">
+      <div class="card-body">
+        <h4>ResArticle</h4>
+        <p class="card-text">Free Posting and sharing any article with insane freedom</p>
+        <hr>
+      </div>
+    </div>
+    <br>
+    <div class="list-group">
+      <button type="button" class="list-group-item list-group-item-action active" aria-current="true">
+        <h4>Popular Categories</h4>
+      </button>
+      <a href="/view-category/rabbit" class="list-group-item list-group-item-action">Rabbit</a>
+      <a href="/view-category/cat" type="button" class="list-group-item list-group-item-action">Cat</a>
+      <a href="/view-category/dog" class="list-group-item list-group-item-action">Dog</a>
+      <a href="/view-category/tiger" type="button" class="list-group-item list-group-item-action">Tiger</a>
+    </div>
+  </div>
+
+  <!--    user card-->
+  <div  class="card shadow-sm mt-4"  th:fragment="CardUser">
+    <div style="height: 350px">
+      <img th:src="@{/resources/img/logo/hacker.jpg}" class="card-img-top h-100 object-fit-cover" alt="user-profile">
+    </div>
+    <div class="card-body">
+      <h5 class="mb-0 mb-2">jennie ta</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card\'s content.</p>
+      <a th:href="@{/profile}" type="button" class="btn btn-primary">View Profile</a>
+
+<!--      <button type="button" class="btn btn-outline-success">Success</button>-->
+<!--      <button type="button" class="btn btn-outline-danger">Danger</button>-->
+<!--      <button type="button" class="btn btn-outline-warning">Warning</button>-->
+    </div>
+  </div>
+
+
+</section>

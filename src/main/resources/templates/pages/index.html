@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layouts/master-layout}">
+<head>
+    <title>Homepage</title>
+    <th:block th:replace="~{fragments/style}"></th:block>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+<main layout:fragment="main-content">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-6" >
+                <div class="d-flex flex-column" th:each="article : ${articles}" th:object="${article}" >
+                    <div th:replace="~{fragments/card :: CardWelcome(*{uuid}, *{thumbnail}, *{title}, *{author}, *{description}, *{logo}, *{name})}"></div>
+
+                </div>
+            </div>
+            <div class="col-6">
+                <!--Card Categories-->
+                <div th:replace="~{fragments/card :: categories}"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="position-fixed bottom-0  text-white fw-bolder end-0 btn btn-primary rounded-pill"
+         style="width: 60px; height: 60px; right: 25px!important; bottom:25px!important"
+    >
+        <a th:href="@{/post}" class="w-100 h-100 text-decoration-none d-flex align-items-center justify-content-center text-white">
+            <i class="fa-solid fa-plus"></i>
+        </a>
+    </div>
+
+
+
+</main>
+
+</body>
+</html>
